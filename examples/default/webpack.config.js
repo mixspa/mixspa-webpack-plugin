@@ -7,7 +7,7 @@ module.exports = {
   context: __dirname,
   entry: './index.js',
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, './dist'),
     publicPath: '/assets/',
     filename: '[name].[hash].js'
   },

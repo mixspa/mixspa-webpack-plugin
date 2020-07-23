@@ -15,13 +15,15 @@ class MixspaWebpackPlugin {
   }
 
   apply(compiler) {
-    compiler.hooks.emit.tapAsync(pluginName, (compilation) => {
+    compiler.hooks.emit.tapAsync(pluginName, (compilation, callback) => {
       this.writeAppInfo(compilation.options.output.path, this.getAppInfo(compilation));
+      return callback();
     });
   }
 
   writeAppInfo(outputPath, appInfo) {
     let outputFileName = path.join(outputPath, this.options.filename);
+    fs.mkdirSync(outputPath, { recursive: true })
     fs.writeFileSync(outputFileName, JSON.stringify(appInfo));
   }
 
@@ -34,7 +36,7 @@ class MixspaWebpackPlugin {
   }
 
   getAssets(compilation) {
-    return compilation.getAssets().map(a => this.options.publicUrl + a.name);
+    return compilation.getAssets().map(asset => this.options.publicUrl + asset.name);
   }
 }
 
