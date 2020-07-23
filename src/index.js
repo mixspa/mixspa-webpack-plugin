@@ -9,7 +9,7 @@ class MixspaWebpackPlugin {
       id: 'app-id',
       tag: 'app-tag',
       filename: 'app.json',
-      publicPath:''
+      publicUrl:''
     };
     this.options = Object.assign(defaultOptions, options || {});
   }
@@ -34,7 +34,7 @@ class MixspaWebpackPlugin {
   }
 
   getAssets(compilation) {
-    return compilation.getAssets().map(a => this.options.publicPath + a.name);
+    return compilation.getAssets().map(a => this.options.publicUrl + a.name);
   }
 }
 

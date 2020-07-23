@@ -33,7 +33,7 @@ module.exports = {
     new MixspaWebpackPlugin({ 
       id: 'example.id',
       tag: 'example-tag',
-      publicPath: '/assets/'
+      publicUrl: '/assets/'
     })
   ]
 };

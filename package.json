@@ -1,7 +1,7 @@
 {
   "name": "@mixspa/webpack-plugin",
-  "version": "0.1.0",
-  "description": "This is a library for generate mixspa info",
+  "version": "0.2.0",
+  "description": "This is a library for generate mixspa app info",
   "main": "lib/index.js",
   "engines": {
     "node": ">= 10"
